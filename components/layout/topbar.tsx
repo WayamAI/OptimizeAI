@@ -1,9 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Bell, Search } from "lucide-react";
+import { Bell, Search, LogOut } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { navGroups } from "@/lib/nav-config";
+import { logout } from "@/app/login/actions";
 
 function useBreadcrumb(pathname: string) {
   if (pathname === "/") return "Dashboard";
@@ -40,6 +41,15 @@ export function Topbar() {
         <Badge className="bg-primary/10 text-primary border border-primary/20 hover:bg-primary/10">
           Executive
         </Badge>
+        <form action={logout}>
+          <button
+            type="submit"
+            aria-label="Sign out"
+            className="flex items-center justify-center h-9 w-9 rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+          >
+            <LogOut className="h-4 w-4" />
+          </button>
+        </form>
       </div>
     </header>
   );
