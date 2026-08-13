@@ -20,14 +20,14 @@ export function Sidebar() {
   );
 
   return (
-    <aside className="hidden md:flex md:w-64 md:flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border shrink-0">
-      <div className="flex items-center gap-2 px-5 h-16 border-b border-sidebar-border">
+    <aside className="hidden md:flex md:w-64 md:flex-col bg-gradient-to-br from-[#fff5ee] via-[#f7d5a6] to-[#e7a45d] text-sidebar-foreground border-r border-sidebar-border shrink-0">
+      <div className="flex items-center gap-2 px-5 h-16 border-b border-sidebar-border/80 bg-white/5 backdrop-blur-[1px]">
         <Image
           src="/brand/logo-light.svg"
           alt="Wayam AI"
-          width={120}
-          height={28}
-          className="h-7 w-auto"
+          width={150}
+          height={36}
+          className="h-19 w-auto"
           priority
         />
       </div>
