@@ -58,9 +58,11 @@ export function WarrantyCostModelerView() {
   const coverageMult = coverageScopes.find((c) => c.key === coverage)!.multiplier;
   const profileMult = operatingProfiles.find((p) => p.key === profile)!.multiplier;
 
+  const FLEET_SCALE = 380; // scales per-unit failure probability up to a fleet-lifetime cost exposure
+
   const costForDuration = (years: number) => {
     const expectedFailures = (family.baseFailureRate / 1000) * years * profileMult;
-    let cost = expectedFailures * family.baseRepairCostLakh * coverageMult;
+    let cost = expectedFailures * family.baseRepairCostLakh * coverageMult * FLEET_SCALE;
     if (includeInsurance) cost *= 1.08;
     return cost;
   };
@@ -143,6 +145,7 @@ export function WarrantyCostModelerView() {
               <Select
                 value={familyCode}
                 onValueChange={(v) => v && setFamilyCode(v)}
+                items={componentFamilies.map((f) => ({ value: f.code, label: f.name }))}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue />

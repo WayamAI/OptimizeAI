@@ -94,7 +94,11 @@ export function AmcPricingView() {
           <CardContent className="space-y-5">
             <div className="space-y-2">
               <Label className="text-xs uppercase text-muted-foreground">Product Line</Label>
-              <Select value={productLine} onValueChange={(v) => v && setProductLine(v)}>
+              <Select
+                value={productLine}
+                onValueChange={(v) => v && setProductLine(v)}
+                items={productLines.map((p) => ({ value: p, label: p }))}
+              >
                 <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   {productLines.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}

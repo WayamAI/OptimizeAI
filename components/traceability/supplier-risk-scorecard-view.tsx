@@ -71,7 +71,11 @@ export function SupplierRiskScorecardView() {
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <Select value={tier} onValueChange={(v) => v && setTier(v)}>
+        <Select
+          value={tier}
+          onValueChange={(v) => v && setTier(v)}
+          items={["All Tiers", "Tier 1", "Tier 2", "Tier 3"].map((t) => ({ value: t, label: t }))}
+        >
           <SelectTrigger className="w-44"><SelectValue /></SelectTrigger>
           <SelectContent>
             {["All Tiers", "Tier 1", "Tier 2", "Tier 3"].map((t) => (
@@ -79,7 +83,14 @@ export function SupplierRiskScorecardView() {
             ))}
           </SelectContent>
         </Select>
-        <Select value={risk} onValueChange={(v) => v && setRisk(v)}>
+        <Select
+          value={risk}
+          onValueChange={(v) => v && setRisk(v)}
+          items={["All Risk Levels", "Low", "Moderate", "High"].map((r) => ({
+            value: r,
+            label: r === "All Risk Levels" ? r : `${r} Risk`,
+          }))}
+        >
           <SelectTrigger className="w-48"><SelectValue /></SelectTrigger>
           <SelectContent>
             {["All Risk Levels", "Low", "Moderate", "High"].map((r) => (

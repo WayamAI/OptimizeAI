@@ -65,7 +65,11 @@ export function WhatIfSimulatorView() {
           <CardContent className="space-y-6">
             <div className="space-y-2">
               <Label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Component Family</Label>
-              <Select value={code} onValueChange={(v) => v && setCode(v)}>
+              <Select
+                value={code}
+                onValueChange={(v) => v && setCode(v)}
+                items={componentFamilies.map((f) => ({ value: f.code, label: f.name }))}
+              >
                 <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   {componentFamilies.map((f) => (
@@ -76,7 +80,11 @@ export function WhatIfSimulatorView() {
             </div>
             <div className="space-y-2">
               <Label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Swap Supplier</Label>
-              <Select value={supplier} onValueChange={(v) => v && setSupplier(v)}>
+              <Select
+                value={supplier}
+                onValueChange={(v) => v && setSupplier(v)}
+                items={supplierOptions.map((s) => ({ value: s, label: s }))}
+              >
                 <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   {supplierOptions.map((s) => (

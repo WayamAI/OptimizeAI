@@ -90,7 +90,11 @@ export function BlastRadiusView() {
             </TabsList>
           </Tabs>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Select value={supplier} onValueChange={(v) => v && setSupplier(v)}>
+            <Select
+              value={supplier}
+              onValueChange={(v) => v && setSupplier(v)}
+              items={suppliers.map((s) => ({ value: s.name, label: s.name }))}
+            >
               <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
               <SelectContent>
                 {suppliers.map((s) => (
@@ -99,7 +103,11 @@ export function BlastRadiusView() {
               </SelectContent>
             </Select>
             {mode === "supplier-batch" && (
-              <Select value={batch} onValueChange={(v) => v && setBatch(v)}>
+              <Select
+                value={batch}
+                onValueChange={(v) => v && setBatch(v)}
+                items={batches.map((b) => ({ value: b, label: b }))}
+              >
                 <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   {batches.map((b) => (

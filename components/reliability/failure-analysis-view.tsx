@@ -83,7 +83,11 @@ export function FailureAnalysisView() {
       <PageHeader title="Failure Analysis" subtitle="Component Reliability / Failure Analysis" />
 
       <div className="mb-6 max-w-sm">
-        <Select value={code} onValueChange={(v) => v && setCode(v)}>
+        <Select
+          value={code}
+          onValueChange={(v) => v && setCode(v)}
+          items={componentFamilies.map((f) => ({ value: f.code, label: f.name }))}
+        >
           <SelectTrigger className="w-full">
             <SelectValue />
           </SelectTrigger>
